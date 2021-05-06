@@ -15,6 +15,8 @@ class AddColumnUserIdForTableDocuments extends Migration
     {
         Schema::table('documents', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
+        });
+        Schema::table('documents', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
